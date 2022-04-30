@@ -1,7 +1,7 @@
 
 ```{r 'check_ps', include=FALSE}
 
-user.name = 'ENTER A USER NAME HERE'
+user.name = 'Melis Dalli'
 ```
 
 # RTutor Uebungsblatt 4 - Projektkurs
@@ -46,7 +46,7 @@ library(stargazer)
 a) Im ersten Schritt laden wir die zur Verfuegung stehenden Daten. Laden Sie die unter Daten bereitgestellten `EU_Makro.csv` Daten in R.
 
 ```{r "1_a"}
-____ <- read_csv("____")
+eu_makro <- read_csv("./data/EU_Makro.csv")
 
 # enter your code here ...
 
@@ -75,12 +75,13 @@ Auf den ersten Blick ist zu erkennen, das ein positiver Zusammenhang zwischen de
 b) Eine beliebte Methode einen Zusammenhang in einer einzelnen Zahl zusammenzufassen ist eine einfache lineare Regression mittels der Methode der kleinsten Quadrate (engl. Ordinary Least Squares OLS). Regressieren Sie in R `unempl` auf `debt_share_country_pro`. Speichern Sie das Ergebnis in der Variablen `reg1` und zeigen Sie dann eine Zusammenfassung von `reg1`. Bitte kommentieren Sie hierfuer den Code aus und ergaenzen Sie diesen: 
 
 ```{r "1_b"}
-reg1 <- lm(___~debt_share_country_pro, data=___)
-summary(___)
+reg1 <- lm(unempl ~ debt_share_country_pro, data = eu_makro)
+summary(reg1)
 
 # enter your code here ...
 
-
+#dat %>% 
+ # ggplot() + geom_sf(aes(fill = debt_share, geometry = geometry)) + geom_sf_text(aes(label = label, geometry = geometry), size = 3) + theme_void() + scale_fill_gradientn(colours = colours, name = "Schuldenquote") + theme(panel.grid.major = element_line(color = "white"))
 # enter your code here ...
 
 ```
@@ -103,7 +104,7 @@ c) Wie hoch ist die erwartete Arbeitslosigkeit bei einer Verschuldungsquote von 
 Geben Sie hier Ihrer Antwort gerundet auf drei Nachkommastellen ein. Achten Sie darauf Dezimalstellen durch Punkte abzutrennen:
 
 ```{r "1_c",optional=TRUE}
-
+6.895
 # enter your code here ...
 
 ```
