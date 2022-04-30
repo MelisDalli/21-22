@@ -1378,3 +1378,23 @@
 ,
 {"type":["check_chunk"],"time":["2022-04-30 21:20:29"],"user":["Melis Dalli"],"umph":[1651346429.6027],"ok":[true],"chunk":[38],"ex":[4],"e.ind":[0],"code":["\n# enter your code here ...\n3"],"message":[""]}
 ,
+{"type":["check_ps"],"time":["2022-04-30 21:28:26"],"user":["Melis Dalli"],"umph":[1651346906.5496],"ok":[true]}
+,
+{"type":["init_ps"],"time":["2022-04-30 21:31:17"],"user":["Melis Dalli"],"umph":[1651347077.9656],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2022-04-30 21:31:18"],"user":["Melis Dalli"],"umph":[1651347078.0507],"ok":[true],"chunk":[1],"ex":[1],"e.ind":[0],"code":["library(stargazer)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-04-30 21:31:18"],"user":["Melis Dalli"],"umph":[1651347078.4276],"ok":[true],"chunk":[2],"ex":[1],"e.ind":[0],"code":["eu_makro <- read_csv(\"./data/EU_Makro.csv\")\n\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-04-30 21:31:18"],"user":["Melis Dalli"],"umph":[1651347078.8159],"ok":[true],"chunk":[3],"ex":[1],"e.ind":[0],"code":["eu_makro <- eu_makro %>%\n  mutate( debt_share_country_pro = debt_share_country * 100)\n  \ng1 <- eu_makro %>%\n  ggplot(aes(x = debt_share_country_pro, y = unempl)) + geom_point() + \n  xlab(\"Verschuldungsquote in %\") +\n  ylab(\"Arbeitslosenquote in %\")\ng1"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-04-30 21:31:18"],"user":["Melis Dalli"],"umph":[1651347078.8645],"ok":[true],"chunk":[4],"ex":[1],"e.ind":[0],"code":["reg1 <- lm(unempl ~ debt_share_country_pro, data = eu_makro)\nsummary(reg1)\n\n# enter your code here ...\n\n#dat %>% \n # ggplot() + geom_sf(aes(fill = debt_share, geometry = geometry)) + geom_sf_text(aes(label = label, geometry = geometry), size = 3) + theme_void() + scale_fill_gradientn(colours = colours, name = \"Schuldenquote\") + theme(panel.grid.major = element_line(color = \"white\"))\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-04-30 21:31:19"],"user":["Melis Dalli"],"umph":[1651347079.3024],"ok":[true],"chunk":[5],"ex":[1],"e.ind":[0],"code":["6.895\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-04-30 21:31:19"],"user":["Melis Dalli"],"umph":[1651347079.3507],"ok":[true],"chunk":[6],"ex":[1],"e.ind":[0],"code":["\n# enter your code here ...\ncoef(reg1)\nb0 <- coef(reg1)[1]\nb1 <- coef(reg1)[2]\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-04-30 21:31:19"],"user":["Melis Dalli"],"umph":[1651347079.661],"ok":[true],"chunk":[7],"ex":[1],"e.ind":[0],"code":["g2 <- g1 + geom_abline(intercept= b0, slope= b1, colour=\"blue\")\n\n# enter your code here ...\n\ng2"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-04-30 21:31:19"],"user":["Melis Dalli"],"umph":[1651347079.6779],"ok":[false],"chunk":[8],"ex":[1],"e.ind":[0],"code":["\n# enter your code here ...\n#cor(unempl, debt_share_country_pro, use=\"pairwise.complete.obs\")\n\neu_makro %>% \ncor(unempl, debt_share_country_pro, use = \"pairwise.complete.obs\")\n         \n\n\n\n"],"message":["evaluation error in \n  eu_makro %>% cor(unempl, debt_share_country_pro, use = \"pairwise.complete.obs\")\n  Error in match.arg(method): object 'debt_share_country_pro' not found\n"]}
+,
