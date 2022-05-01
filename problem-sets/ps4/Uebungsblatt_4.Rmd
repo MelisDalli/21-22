@@ -137,10 +137,8 @@ g) In einer einfachen linearen Regression von `y` auf `x`, hat der geschaetzte K
 ```{r "1_g",optional=TRUE}
 
 # enter your code here ...
-#cor(unempl, debt_share_country_pro, use="pairwise.complete.obs")
 
-eu_makro %>% 
-cor(unempl, debt_share_country_pro, use = "pairwise.complete.obs")
+cor(eu_makro$unempl, eu_makro$debt_share_country_pro, use = "pairwise.complete.obs")
          
 
 
