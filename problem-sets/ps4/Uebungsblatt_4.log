@@ -1398,3 +1398,323 @@
 ,
 {"type":["check_chunk"],"time":["2022-04-30 21:31:19"],"user":["Melis Dalli"],"umph":[1651347079.6779],"ok":[false],"chunk":[8],"ex":[1],"e.ind":[0],"code":["\n# enter your code here ...\n#cor(unempl, debt_share_country_pro, use=\"pairwise.complete.obs\")\n\neu_makro %>% \ncor(unempl, debt_share_country_pro, use = \"pairwise.complete.obs\")\n         \n\n\n\n"],"message":["evaluation error in \n  eu_makro %>% cor(unempl, debt_share_country_pro, use = \"pairwise.complete.obs\")\n  Error in match.arg(method): object 'debt_share_country_pro' not found\n"]}
 ,
+{"type":["init_ps"],"time":["2022-05-01 16:20:04"],"user":["Melis Dalli"],"umph":[1651414804.5157],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:04"],"user":["Melis Dalli"],"umph":[1651414804.5429],"ok":[true],"chunk":[1],"ex":[1],"e.ind":[0],"code":["library(stargazer)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:04"],"user":["Melis Dalli"],"umph":[1651414804.9582],"ok":[true],"chunk":[2],"ex":[1],"e.ind":[0],"code":["eu_makro <- read_csv(\"./data/EU_Makro.csv\")\n\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:05"],"user":["Melis Dalli"],"umph":[1651414805.2219],"ok":[true],"chunk":[3],"ex":[1],"e.ind":[0],"code":["eu_makro <- eu_makro %>%\n  mutate( debt_share_country_pro = debt_share_country * 100)\n  \ng1 <- eu_makro %>%\n  ggplot(aes(x = debt_share_country_pro, y = unempl)) + geom_point() + \n  xlab(\"Verschuldungsquote in %\") +\n  ylab(\"Arbeitslosenquote in %\")\ng1"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:05"],"user":["Melis Dalli"],"umph":[1651414805.2518],"ok":[true],"chunk":[4],"ex":[1],"e.ind":[0],"code":["reg1 <- lm(unempl ~ debt_share_country_pro, data = eu_makro)\nsummary(reg1)\n\n# enter your code here ...\n\n#dat %>% \n # ggplot() + geom_sf(aes(fill = debt_share, geometry = geometry)) + geom_sf_text(aes(label = label, geometry = geometry), size = 3) + theme_void() + scale_fill_gradientn(colours = colours, name = \"Schuldenquote\") + theme(panel.grid.major = element_line(color = \"white\"))\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:05"],"user":["Melis Dalli"],"umph":[1651414805.2821],"ok":[true],"chunk":[5],"ex":[1],"e.ind":[0],"code":["6.895\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:05"],"user":["Melis Dalli"],"umph":[1651414805.6866],"ok":[true],"chunk":[6],"ex":[1],"e.ind":[0],"code":["\n# enter your code here ...\ncoef(reg1)\nb0 <- coef(reg1)[1]\nb1 <- coef(reg1)[2]\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:05"],"user":["Melis Dalli"],"umph":[1651414805.9795],"ok":[true],"chunk":[7],"ex":[1],"e.ind":[0],"code":["g2 <- g1 + geom_abline(intercept= b0, slope= b1, colour=\"blue\")\n\n# enter your code here ...\n\ng2"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:05"],"user":["Melis Dalli"],"umph":[1651414805.9934],"ok":[false],"chunk":[8],"ex":[1],"e.ind":[0],"code":["\n# enter your code here ...\n#cor(unempl, debt_share_country_pro, use=\"pairwise.complete.obs\")\n\neu_makro %>% \ncor(unempl, debt_share_country_pro, use = \"pairwise.complete.obs\")\n         \n\n\n\n"],"message":["evaluation error in \n  eu_makro %>% cor(unempl, debt_share_country_pro, use = \"pairwise.complete.obs\")\n  Error in match.arg(method): object 'debt_share_country_pro' not found\n"]}
+,
+{"type":["check_ps"],"time":["2022-05-01 16:20:51"],"user":["Melis Dalli"],"umph":[1651414851.066],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:51"],"user":["Melis Dalli"],"umph":[1651414851.1219],"ok":[true],"chunk":[8],"ex":[1],"e.ind":[0],"code":["\n# enter your code here ...\n#cor(unempl, debt_share_country_pro, use=\"pairwise.complete.obs\")\n\n#eu_makro %>% \ncor(eu_makro$unempl, eu_makro$debt_share_country_pro, use = \"pairwise.complete.obs\")\n         \n\n\n\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:51"],"user":["Melis Dalli"],"umph":[1651414851.2587],"ok":[true],"chunk":[9],"ex":[2],"e.ind":[0],"code":["set.seed(1)\nT <-  20 # Zahl der Beobachtungen\nbeta0 <- 10; beta1 <- 2;\nu <- rnorm(T,0,3) # Normalverteilte Stoergroesse\nu\nx <- runif(T,0,4) # gleichverteilte x zwischen 0 und 4\nx\ny <- beta0 + beta1*x + u\ny"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:51"],"user":["Melis Dalli"],"umph":[1651414851.2996],"ok":[true],"chunk":[10],"ex":[2],"e.ind":[0],"code":["\n# enter your code here ...\n2"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:51"],"user":["Melis Dalli"],"umph":[1651414851.3388],"ok":[true],"chunk":[11],"ex":[2],"e.ind":[0],"code":["\n# enter your code here ...\nlm(y ~ x)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:51"],"user":["Melis Dalli"],"umph":[1651414851.3705],"ok":[true],"chunk":[12],"ex":[2],"e.ind":[0],"code":["simulate.and.estimate <- function(T=20, beta0 = 10, beta1=2) {\n  u <- rnorm(T,0,3) # Normalverteilte Stoergroesse\n  x <- runif(T,0,4) # gleichverteilte x zwischen 0 und 4\n  y <- beta0 + beta1*x + u\n  # Anmerkung lm.fit lauft schneller als\n  # lm, hat aber keinen so schoenen Syntax\n  reg <- lm.fit(x=cbind(1,x),y=y)\n  coef(reg)[2]\n}\nsimulate.and.estimate()\nsimulate.and.estimate()\nsimulate.and.estimate()"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:51"],"user":["Melis Dalli"],"umph":[1651414851.3984],"ok":[true],"chunk":[13],"ex":[2],"e.ind":[0],"code":["2\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:52"],"user":["Melis Dalli"],"umph":[1651414852.3457],"ok":[true],"chunk":[14],"ex":[2],"e.ind":[0],"code":["sim.beta1 <- replicate(5000,simulate.and.estimate())\n\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:52"],"user":["Melis Dalli"],"umph":[1651414852.4455],"ok":[true],"chunk":[15],"ex":[2],"e.ind":[0],"code":["\n# enter your code here ...\nhist(sim.beta1)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:52"],"user":["Melis Dalli"],"umph":[1651414852.7601],"ok":[true],"chunk":[16],"ex":[2],"e.ind":[0],"code":["ggplot(mapping=aes(x=sim.beta1)) + geom_density(fill=\"blue\", alpha=0.5) + geom_vline(xintercept = 2)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:52"],"user":["Melis Dalli"],"umph":[1651414852.7806],"ok":[true],"chunk":[17],"ex":[2],"e.ind":[0],"code":["\n# enter your code here ...\nsd(sim.beta1)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:52"],"user":["Melis Dalli"],"umph":[1651414852.8182],"ok":[true],"chunk":[18],"ex":[2],"e.ind":[0],"code":["reg1 <-  lm(y~x)\nsummary(reg1)\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:53"],"user":["Melis Dalli"],"umph":[1651414853.1304],"ok":[true],"chunk":[19],"ex":[2],"e.ind":[0],"code":["\n# enter your code here ...\n\nconfint(reg1, level = 0.95)\nconfint(reg1, level = 0.99)\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:54"],"user":["Melis Dalli"],"umph":[1651414854.7837],"ok":[true],"chunk":[20],"ex":[2],"e.ind":[0],"code":["ggplot(mapping = aes(x=x,y=y)) + geom_point()+ geom_smooth(method=\"lm\")"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:55"],"user":["Melis Dalli"],"umph":[1651414855.1776],"ok":[true],"chunk":[21],"ex":[3],"e.ind":[0],"code":["eu_makro <- read_csv(\"./data/EU_Makro.csv\")"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:55"],"user":["Melis Dalli"],"umph":[1651414855.555],"ok":[true],"chunk":[22],"ex":[3],"e.ind":[0],"code":["eu_makro <-  eu_makro %>%\n  group_by(country) %>%\n  arrange(year) %>%\n  mutate(gdp_growth = 100*(gdp - lag(gdp)) / gdp ) %>%\n  ungroup()"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:55"],"user":["Melis Dalli"],"umph":[1651414855.5945],"ok":[true],"chunk":[23],"ex":[3],"e.ind":[0],"code":["\n# enter your code here ...\ndat <- eu_makro %>%\n #filter(country == \"Germany\" | country == \"France\" | country == \"Netherlands\") %>%\n\nfilter(country %in% c(\"Germany\",\"France\",\"Netherlands\"))\n#dat\n\n    \n  \n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:55"],"user":["Melis Dalli"],"umph":[1651414855.6698],"ok":[true],"chunk":[24],"ex":[3],"e.ind":[0],"code":["\n# enter your code here ...\nreg1 <- lm(unempl ~ gdp_growth, data = dat)\nsummary(reg1)\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:55"],"user":["Melis Dalli"],"umph":[1651414855.6945],"ok":[true],"chunk":[25],"ex":[3],"e.ind":[0],"code":["\n# enter your code here ...\n1"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:55"],"user":["Melis Dalli"],"umph":[1651414855.7211],"ok":[true],"chunk":[26],"ex":[3],"e.ind":[0],"code":["\n# enter your code here ...\n3"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:55"],"user":["Melis Dalli"],"umph":[1651414855.7509],"ok":[true],"chunk":[27],"ex":[3],"e.ind":[0],"code":["\n# enter your code here ...\nc(3)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:56"],"user":["Melis Dalli"],"umph":[1651414856.187],"ok":[true],"chunk":[28],"ex":[3],"e.ind":[0],"code":["reg2 <- lm(unempl~gdp_growth, data=eu_makro)\nstargazer(type = \"text\", reg2 ,  single.row = TRUE, header = FALSE, digits=2)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:56"],"user":["Melis Dalli"],"umph":[1651414856.204],"ok":[true],"chunk":[29],"ex":[3],"e.ind":[0],"code":["\n# enter your code here ...\n3"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:56"],"user":["Melis Dalli"],"umph":[1651414856.2259],"ok":[true],"chunk":[30],"ex":[3],"e.ind":[0],"code":["\n# enter your code here ...\n4"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:56"],"user":["Melis Dalli"],"umph":[1651414856.2748],"ok":[true],"chunk":[31],"ex":[4],"e.ind":[0],"code":["pwt <- readRDS(\"./data/pwt_2014.rds\")\nhead(pwt)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:56"],"user":["Melis Dalli"],"umph":[1651414856.3226],"ok":[true],"chunk":[32],"ex":[4],"e.ind":[0],"code":["\n# enter your code here ...\nreg1 <-  lm(formula = bip ~ k, data = pwt)\nsummary(reg1)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:56"],"user":["Melis Dalli"],"umph":[1651414856.3551],"ok":[true],"chunk":[33],"ex":[4],"e.ind":[0],"code":["\n# enter your code here ...\n2"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:56"],"user":["Melis Dalli"],"umph":[1651414856.6346],"ok":[true],"chunk":[34],"ex":[4],"e.ind":[0],"code":["ggplot(pwt,aes(x=k,y=bip, label=isocode)) + geom_text() + geom_smooth(method=\"lm\")"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:56"],"user":["Melis Dalli"],"umph":[1651414856.6772],"ok":[true],"chunk":[35],"ex":[4],"e.ind":[0],"code":["\n# enter your code here ...\npwt <- pwt %>%\n  mutate(log_bip = log(bip), log_k = log(k))"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:57"],"user":["Melis Dalli"],"umph":[1651414857.1595],"ok":[true],"chunk":[36],"ex":[4],"e.ind":[0],"code":["ggplot(pwt,aes(x=log_k,y=log_bip, label=isocode)) + geom_text() + geom_smooth(method=\"lm\")"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:57"],"user":["Melis Dalli"],"umph":[1651414857.1928],"ok":[true],"chunk":[37],"ex":[4],"e.ind":[0],"code":["\n# enter your code here ...\nreg2 <- lm(log_bip ~ log_k, data = pwt)\nsummary(reg2)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:20:57"],"user":["Melis Dalli"],"umph":[1651414857.2138],"ok":[true],"chunk":[38],"ex":[4],"e.ind":[0],"code":["\n# enter your code here ...\n3"],"message":[""]}
+,
+{"type":["hint"],"time":["2022-05-01 16:24:58"],"user":["Melis Dalli"],"umph":[1651415098.5648],"ok":[true],"chunk":[38],"ex":[4],"e.ind":[1]}
+,
+{"type":["init_ps"],"time":["2022-05-01 16:28:11"],"user":["Melis Dalli"],"umph":[1651415291.4214],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:11"],"user":["Melis Dalli"],"umph":[1651415291.4515],"ok":[true],"chunk":[1],"ex":[1],"e.ind":[0],"code":["library(stargazer)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:11"],"user":["Melis Dalli"],"umph":[1651415291.7992],"ok":[true],"chunk":[2],"ex":[1],"e.ind":[0],"code":["eu_makro <- read_csv(\"./data/EU_Makro.csv\")\n\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:12"],"user":["Melis Dalli"],"umph":[1651415292.0799],"ok":[true],"chunk":[3],"ex":[1],"e.ind":[0],"code":["eu_makro <- eu_makro %>%\n  mutate( debt_share_country_pro = debt_share_country * 100)\n  \ng1 <- eu_makro %>%\n  ggplot(aes(x = debt_share_country_pro, y = unempl)) + geom_point() + \n  xlab(\"Verschuldungsquote in %\") +\n  ylab(\"Arbeitslosenquote in %\")\ng1"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:12"],"user":["Melis Dalli"],"umph":[1651415292.124],"ok":[true],"chunk":[4],"ex":[1],"e.ind":[0],"code":["reg1 <- lm(unempl ~ debt_share_country_pro, data = eu_makro)\nsummary(reg1)\n\n# enter your code here ...\n\n#dat %>% \n # ggplot() + geom_sf(aes(fill = debt_share, geometry = geometry)) + geom_sf_text(aes(label = label, geometry = geometry), size = 3) + theme_void() + scale_fill_gradientn(colours = colours, name = \"Schuldenquote\") + theme(panel.grid.major = element_line(color = \"white\"))\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:12"],"user":["Melis Dalli"],"umph":[1651415292.1507],"ok":[true],"chunk":[5],"ex":[1],"e.ind":[0],"code":["6.895\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:12"],"user":["Melis Dalli"],"umph":[1651415292.2106],"ok":[true],"chunk":[6],"ex":[1],"e.ind":[0],"code":["\n# enter your code here ...\ncoef(reg1)\nb0 <- coef(reg1)[1]\nb1 <- coef(reg1)[2]\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:12"],"user":["Melis Dalli"],"umph":[1651415292.6018],"ok":[true],"chunk":[7],"ex":[1],"e.ind":[0],"code":["g2 <- g1 + geom_abline(intercept= b0, slope= b1, colour=\"blue\")\n\n# enter your code here ...\n\ng2"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:12"],"user":["Melis Dalli"],"umph":[1651415292.6433],"ok":[true],"chunk":[8],"ex":[1],"e.ind":[0],"code":["\n# enter your code here ...\n#cor(unempl, debt_share_country_pro, use=\"pairwise.complete.obs\")\n\n#eu_makro %>% \ncor(eu_makro$unempl, eu_makro$debt_share_country_pro, use = \"pairwise.complete.obs\")\n         \n\n\n\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:13"],"user":["Melis Dalli"],"umph":[1651415293.3833],"ok":[true],"chunk":[9],"ex":[2],"e.ind":[0],"code":["set.seed(1)\nT <-  20 # Zahl der Beobachtungen\nbeta0 <- 10; beta1 <- 2;\nu <- rnorm(T,0,3) # Normalverteilte Stoergroesse\nu\nx <- runif(T,0,4) # gleichverteilte x zwischen 0 und 4\nx\ny <- beta0 + beta1*x + u\ny"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:13"],"user":["Melis Dalli"],"umph":[1651415293.417],"ok":[true],"chunk":[10],"ex":[2],"e.ind":[0],"code":["\n# enter your code here ...\n2"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:13"],"user":["Melis Dalli"],"umph":[1651415293.4482],"ok":[true],"chunk":[11],"ex":[2],"e.ind":[0],"code":["\n# enter your code here ...\nlm(y ~ x)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:13"],"user":["Melis Dalli"],"umph":[1651415293.469],"ok":[true],"chunk":[12],"ex":[2],"e.ind":[0],"code":["simulate.and.estimate <- function(T=20, beta0 = 10, beta1=2) {\n  u <- rnorm(T,0,3) # Normalverteilte Stoergroesse\n  x <- runif(T,0,4) # gleichverteilte x zwischen 0 und 4\n  y <- beta0 + beta1*x + u\n  # Anmerkung lm.fit lauft schneller als\n  # lm, hat aber keinen so schoenen Syntax\n  reg <- lm.fit(x=cbind(1,x),y=y)\n  coef(reg)[2]\n}\nsimulate.and.estimate()\nsimulate.and.estimate()\nsimulate.and.estimate()"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:13"],"user":["Melis Dalli"],"umph":[1651415293.4968],"ok":[true],"chunk":[13],"ex":[2],"e.ind":[0],"code":["2\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:14"],"user":["Melis Dalli"],"umph":[1651415294.4796],"ok":[true],"chunk":[14],"ex":[2],"e.ind":[0],"code":["sim.beta1 <- replicate(5000,simulate.and.estimate())\n\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:14"],"user":["Melis Dalli"],"umph":[1651415294.5506],"ok":[true],"chunk":[15],"ex":[2],"e.ind":[0],"code":["\n# enter your code here ...\nhist(sim.beta1)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:14"],"user":["Melis Dalli"],"umph":[1651415294.9928],"ok":[true],"chunk":[16],"ex":[2],"e.ind":[0],"code":["ggplot(mapping=aes(x=sim.beta1)) + geom_density(fill=\"blue\", alpha=0.5) + geom_vline(xintercept = 2)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:15"],"user":["Melis Dalli"],"umph":[1651415295.0327],"ok":[true],"chunk":[17],"ex":[2],"e.ind":[0],"code":["\n# enter your code here ...\nsd(sim.beta1)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:15"],"user":["Melis Dalli"],"umph":[1651415295.3457],"ok":[true],"chunk":[18],"ex":[2],"e.ind":[0],"code":["reg1 <-  lm(y~x)\nsummary(reg1)\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:15"],"user":["Melis Dalli"],"umph":[1651415295.3855],"ok":[true],"chunk":[19],"ex":[2],"e.ind":[0],"code":["\n# enter your code here ...\n\nconfint(reg1, level = 0.95)\nconfint(reg1, level = 0.99)\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:15"],"user":["Melis Dalli"],"umph":[1651415295.6308],"ok":[true],"chunk":[20],"ex":[2],"e.ind":[0],"code":["ggplot(mapping = aes(x=x,y=y)) + geom_point()+ geom_smooth(method=\"lm\")"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:15"],"user":["Melis Dalli"],"umph":[1651415295.9972],"ok":[true],"chunk":[21],"ex":[3],"e.ind":[0],"code":["eu_makro <- read_csv(\"./data/EU_Makro.csv\")"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:16"],"user":["Melis Dalli"],"umph":[1651415296.2917],"ok":[true],"chunk":[22],"ex":[3],"e.ind":[0],"code":["eu_makro <-  eu_makro %>%\n  group_by(country) %>%\n  arrange(year) %>%\n  mutate(gdp_growth = 100*(gdp - lag(gdp)) / gdp ) %>%\n  ungroup()"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:16"],"user":["Melis Dalli"],"umph":[1651415296.3151],"ok":[true],"chunk":[23],"ex":[3],"e.ind":[0],"code":["\n# enter your code here ...\ndat <- eu_makro %>%\n #filter(country == \"Germany\" | country == \"France\" | country == \"Netherlands\") %>%\n\nfilter(country %in% c(\"Germany\",\"France\",\"Netherlands\"))\n#dat\n\n    \n  \n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:16"],"user":["Melis Dalli"],"umph":[1651415296.341],"ok":[true],"chunk":[24],"ex":[3],"e.ind":[0],"code":["\n# enter your code here ...\nreg1 <- lm(unempl ~ gdp_growth, data = dat)\nsummary(reg1)\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:16"],"user":["Melis Dalli"],"umph":[1651415296.3594],"ok":[true],"chunk":[25],"ex":[3],"e.ind":[0],"code":["\n# enter your code here ...\n1"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:16"],"user":["Melis Dalli"],"umph":[1651415296.4038],"ok":[true],"chunk":[26],"ex":[3],"e.ind":[0],"code":["\n# enter your code here ...\n3"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:16"],"user":["Melis Dalli"],"umph":[1651415296.4289],"ok":[true],"chunk":[27],"ex":[3],"e.ind":[0],"code":["\n# enter your code here ...\nc(3)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:16"],"user":["Melis Dalli"],"umph":[1651415296.8095],"ok":[true],"chunk":[28],"ex":[3],"e.ind":[0],"code":["reg2 <- lm(unempl~gdp_growth, data=eu_makro)\nstargazer(type = \"text\", reg2 ,  single.row = TRUE, header = FALSE, digits=2)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:16"],"user":["Melis Dalli"],"umph":[1651415296.8298],"ok":[true],"chunk":[29],"ex":[3],"e.ind":[0],"code":["\n# enter your code here ...\n3"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:16"],"user":["Melis Dalli"],"umph":[1651415296.8298],"ok":[true],"chunk":[30],"ex":[3],"e.ind":[0],"code":["\n# enter your code here ...\n4"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:16"],"user":["Melis Dalli"],"umph":[1651415296.8862],"ok":[true],"chunk":[31],"ex":[4],"e.ind":[0],"code":["pwt <- readRDS(\"./data/pwt_2014.rds\")\nhead(pwt)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:16"],"user":["Melis Dalli"],"umph":[1651415296.9239],"ok":[true],"chunk":[32],"ex":[4],"e.ind":[0],"code":["\n# enter your code here ...\nreg1 <-  lm(formula = bip ~ k, data = pwt)\nsummary(reg1)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:16"],"user":["Melis Dalli"],"umph":[1651415296.9421],"ok":[true],"chunk":[33],"ex":[4],"e.ind":[0],"code":["\n# enter your code here ...\n2"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:17"],"user":["Melis Dalli"],"umph":[1651415297.167],"ok":[true],"chunk":[34],"ex":[4],"e.ind":[0],"code":["ggplot(pwt,aes(x=k,y=bip, label=isocode)) + geom_text() + geom_smooth(method=\"lm\")"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:17"],"user":["Melis Dalli"],"umph":[1651415297.1962],"ok":[true],"chunk":[35],"ex":[4],"e.ind":[0],"code":["\n# enter your code here ...\npwt <- pwt %>%\n  mutate(log_bip = log(bip), log_k = log(k))"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:17"],"user":["Melis Dalli"],"umph":[1651415297.5387],"ok":[true],"chunk":[36],"ex":[4],"e.ind":[0],"code":["ggplot(pwt,aes(x=log_k,y=log_bip, label=isocode)) + geom_text() + geom_smooth(method=\"lm\")"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:17"],"user":["Melis Dalli"],"umph":[1651415297.5748],"ok":[true],"chunk":[37],"ex":[4],"e.ind":[0],"code":["\n# enter your code here ...\nreg2 <- lm(log_bip ~ log_k, data = pwt)\nsummary(reg2)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:28:17"],"user":["Melis Dalli"],"umph":[1651415297.5997],"ok":[true],"chunk":[38],"ex":[4],"e.ind":[0],"code":["\n# enter your code here ...\n3"],"message":[""]}
+,
+{"type":["init_ps"],"time":["2022-05-01 16:46:43"],"user":["Melis Dalli"],"umph":[1651416403.0126],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:43"],"user":["Melis Dalli"],"umph":[1651416403.049],"ok":[true],"chunk":[1],"ex":[1],"e.ind":[0],"code":["library(stargazer)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:43"],"user":["Melis Dalli"],"umph":[1651416403.3505],"ok":[true],"chunk":[2],"ex":[1],"e.ind":[0],"code":["eu_makro <- read_csv(\"./data/EU_Makro.csv\")\n\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:43"],"user":["Melis Dalli"],"umph":[1651416403.6755],"ok":[true],"chunk":[3],"ex":[1],"e.ind":[0],"code":["eu_makro <- eu_makro %>%\n  mutate( debt_share_country_pro = debt_share_country * 100)\n  \ng1 <- eu_makro %>%\n  ggplot(aes(x = debt_share_country_pro, y = unempl)) + geom_point() + \n  xlab(\"Verschuldungsquote in %\") +\n  ylab(\"Arbeitslosenquote in %\")\ng1"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:43"],"user":["Melis Dalli"],"umph":[1651416403.7244],"ok":[true],"chunk":[4],"ex":[1],"e.ind":[0],"code":["reg1 <- lm(unempl ~ debt_share_country_pro, data = eu_makro)\nsummary(reg1)\n\n# enter your code here ...\n\n#dat %>% \n # ggplot() + geom_sf(aes(fill = debt_share, geometry = geometry)) + geom_sf_text(aes(label = label, geometry = geometry), size = 3) + theme_void() + scale_fill_gradientn(colours = colours, name = \"Schuldenquote\") + theme(panel.grid.major = element_line(color = \"white\"))\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:43"],"user":["Melis Dalli"],"umph":[1651416403.7602],"ok":[true],"chunk":[5],"ex":[1],"e.ind":[0],"code":["6.895\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:44"],"user":["Melis Dalli"],"umph":[1651416404.1996],"ok":[true],"chunk":[6],"ex":[1],"e.ind":[0],"code":["\n# enter your code here ...\ncoef(reg1)\nb0 <- coef(reg1)[1]\nb1 <- coef(reg1)[2]\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:44"],"user":["Melis Dalli"],"umph":[1651416404.4689],"ok":[true],"chunk":[7],"ex":[1],"e.ind":[0],"code":["g2 <- g1 + geom_abline(intercept= b0, slope= b1, colour=\"blue\")\n\n# enter your code here ...\n\ng2"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:44"],"user":["Melis Dalli"],"umph":[1651416404.4892],"ok":[true],"chunk":[8],"ex":[1],"e.ind":[0],"code":["\n# enter your code here ...\n\ncor(eu_makro$unempl, eu_makro$debt_share_country_pro, use = \"pairwise.complete.obs\")\n         \n\n\n\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:44"],"user":["Melis Dalli"],"umph":[1651416404.5856],"ok":[true],"chunk":[9],"ex":[2],"e.ind":[0],"code":["set.seed(1)\nT <-  20 # Zahl der Beobachtungen\nbeta0 <- 10; beta1 <- 2;\nu <- rnorm(T,0,3) # Normalverteilte Stoergroesse\nu\nx <- runif(T,0,4) # gleichverteilte x zwischen 0 und 4\nx\ny <- beta0 + beta1*x + u\ny"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:44"],"user":["Melis Dalli"],"umph":[1651416404.6026],"ok":[true],"chunk":[10],"ex":[2],"e.ind":[0],"code":["\n# enter your code here ...\n2"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:44"],"user":["Melis Dalli"],"umph":[1651416404.6238],"ok":[true],"chunk":[11],"ex":[2],"e.ind":[0],"code":["\n# enter your code here ...\nlm(y ~ x)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:44"],"user":["Melis Dalli"],"umph":[1651416404.646],"ok":[true],"chunk":[12],"ex":[2],"e.ind":[0],"code":["simulate.and.estimate <- function(T=20, beta0 = 10, beta1=2) {\n  u <- rnorm(T,0,3) # Normalverteilte Stoergroesse\n  x <- runif(T,0,4) # gleichverteilte x zwischen 0 und 4\n  y <- beta0 + beta1*x + u\n  # Anmerkung lm.fit lauft schneller als\n  # lm, hat aber keinen so schoenen Syntax\n  reg <- lm.fit(x=cbind(1,x),y=y)\n  coef(reg)[2]\n}\nsimulate.and.estimate()\nsimulate.and.estimate()\nsimulate.and.estimate()"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:44"],"user":["Melis Dalli"],"umph":[1651416404.6691],"ok":[true],"chunk":[13],"ex":[2],"e.ind":[0],"code":["2\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:46"],"user":["Melis Dalli"],"umph":[1651416406.0143],"ok":[true],"chunk":[14],"ex":[2],"e.ind":[0],"code":["sim.beta1 <- replicate(5000,simulate.and.estimate())\n\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:46"],"user":["Melis Dalli"],"umph":[1651416406.0988],"ok":[true],"chunk":[15],"ex":[2],"e.ind":[0],"code":["\n# enter your code here ...\nhist(sim.beta1)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:46"],"user":["Melis Dalli"],"umph":[1651416406.4108],"ok":[true],"chunk":[16],"ex":[2],"e.ind":[0],"code":["ggplot(mapping=aes(x=sim.beta1)) + geom_density(fill=\"blue\", alpha=0.5) + geom_vline(xintercept = 2)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:46"],"user":["Melis Dalli"],"umph":[1651416406.4413],"ok":[true],"chunk":[17],"ex":[2],"e.ind":[0],"code":["\n# enter your code here ...\nsd(sim.beta1)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:46"],"user":["Melis Dalli"],"umph":[1651416406.4803],"ok":[true],"chunk":[18],"ex":[2],"e.ind":[0],"code":["reg1 <-  lm(y~x)\nsummary(reg1)\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:46"],"user":["Melis Dalli"],"umph":[1651416406.5142],"ok":[true],"chunk":[19],"ex":[2],"e.ind":[0],"code":["\n# enter your code here ...\n\nconfint(reg1, level = 0.95)\nconfint(reg1, level = 0.99)\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:47"],"user":["Melis Dalli"],"umph":[1651416407.2202],"ok":[true],"chunk":[20],"ex":[2],"e.ind":[0],"code":["ggplot(mapping = aes(x=x,y=y)) + geom_point()+ geom_smooth(method=\"lm\")"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:47"],"user":["Melis Dalli"],"umph":[1651416407.721],"ok":[true],"chunk":[21],"ex":[3],"e.ind":[0],"code":["eu_makro <- read_csv(\"./data/EU_Makro.csv\")"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:48"],"user":["Melis Dalli"],"umph":[1651416408.284],"ok":[true],"chunk":[22],"ex":[3],"e.ind":[0],"code":["eu_makro <-  eu_makro %>%\n  group_by(country) %>%\n  arrange(year) %>%\n  mutate(gdp_growth = 100*(gdp - lag(gdp)) / gdp ) %>%\n  ungroup()"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:48"],"user":["Melis Dalli"],"umph":[1651416408.3172],"ok":[true],"chunk":[23],"ex":[3],"e.ind":[0],"code":["\n# enter your code here ...\ndat <- eu_makro %>%\n #filter(country == \"Germany\" | country == \"France\" | country == \"Netherlands\") %>%\n\nfilter(country %in% c(\"Germany\",\"France\",\"Netherlands\"))\n#dat\n\n    \n  \n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:48"],"user":["Melis Dalli"],"umph":[1651416408.3556],"ok":[true],"chunk":[24],"ex":[3],"e.ind":[0],"code":["\n# enter your code here ...\nreg1 <- lm(unempl ~ gdp_growth, data = dat)\nsummary(reg1)\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:48"],"user":["Melis Dalli"],"umph":[1651416408.3803],"ok":[true],"chunk":[25],"ex":[3],"e.ind":[0],"code":["\n# enter your code here ...\n1"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:48"],"user":["Melis Dalli"],"umph":[1651416408.4031],"ok":[true],"chunk":[26],"ex":[3],"e.ind":[0],"code":["\n# enter your code here ...\n3"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:48"],"user":["Melis Dalli"],"umph":[1651416408.4282],"ok":[true],"chunk":[27],"ex":[3],"e.ind":[0],"code":["\n# enter your code here ...\nc(3)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:48"],"user":["Melis Dalli"],"umph":[1651416408.8942],"ok":[true],"chunk":[28],"ex":[3],"e.ind":[0],"code":["reg2 <- lm(unempl~gdp_growth, data=eu_makro)\nstargazer(type = \"text\", reg2 ,  single.row = TRUE, header = FALSE, digits=2)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:48"],"user":["Melis Dalli"],"umph":[1651416408.9206],"ok":[true],"chunk":[29],"ex":[3],"e.ind":[0],"code":["\n# enter your code here ...\n3"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:48"],"user":["Melis Dalli"],"umph":[1651416408.9436],"ok":[true],"chunk":[30],"ex":[3],"e.ind":[0],"code":["\n# enter your code here ...\n4"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:48"],"user":["Melis Dalli"],"umph":[1651416408.9978],"ok":[true],"chunk":[31],"ex":[4],"e.ind":[0],"code":["pwt <- readRDS(\"./data/pwt_2014.rds\")\nhead(pwt)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:49"],"user":["Melis Dalli"],"umph":[1651416409.0332],"ok":[true],"chunk":[32],"ex":[4],"e.ind":[0],"code":["\n# enter your code here ...\nreg1 <-  lm(formula = bip ~ k, data = pwt)\nsummary(reg1)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:49"],"user":["Melis Dalli"],"umph":[1651416409.0636],"ok":[true],"chunk":[33],"ex":[4],"e.ind":[0],"code":["\n# enter your code here ...\n2"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:49"],"user":["Melis Dalli"],"umph":[1651416409.3431],"ok":[true],"chunk":[34],"ex":[4],"e.ind":[0],"code":["ggplot(pwt,aes(x=k,y=bip, label=isocode)) + geom_text() + geom_smooth(method=\"lm\")"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:49"],"user":["Melis Dalli"],"umph":[1651416409.3783],"ok":[true],"chunk":[35],"ex":[4],"e.ind":[0],"code":["\n# enter your code here ...\npwt <- pwt %>%\n  mutate(log_bip = log(bip), log_k = log(k))"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:49"],"user":["Melis Dalli"],"umph":[1651416409.8262],"ok":[true],"chunk":[36],"ex":[4],"e.ind":[0],"code":["ggplot(pwt,aes(x=log_k,y=log_bip, label=isocode)) + geom_text() + geom_smooth(method=\"lm\")"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:49"],"user":["Melis Dalli"],"umph":[1651416409.8975],"ok":[true],"chunk":[37],"ex":[4],"e.ind":[0],"code":["\n# enter your code here ...\nreg2 <- lm(log_bip ~ log_k, data = pwt)\nsummary(reg2)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:46:49"],"user":["Melis Dalli"],"umph":[1651416409.9568],"ok":[true],"chunk":[38],"ex":[4],"e.ind":[0],"code":["\n# enter your code here ...\n3"],"message":[""]}
+,
+{"type":["grade_ps"],"time":["2022-05-01 16:47:03"],"user":["Melis Dalli"],"umph":[1651416423.0316],"ok":[true]}
+,
+{"type":["init_ps"],"time":["2022-05-01 16:47:03"],"user":["Melis Dalli"],"umph":[1651416423.0912],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:03"],"user":["Melis Dalli"],"umph":[1651416423.1176],"ok":[true],"chunk":[1],"ex":[1],"e.ind":[0],"code":["library(stargazer)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:03"],"user":["Melis Dalli"],"umph":[1651416423.505],"ok":[true],"chunk":[2],"ex":[1],"e.ind":[0],"code":["eu_makro <- read_csv(\"./data/EU_Makro.csv\")\n\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:03"],"user":["Melis Dalli"],"umph":[1651416423.8526],"ok":[true],"chunk":[3],"ex":[1],"e.ind":[0],"code":["eu_makro <- eu_makro %>%\n  mutate( debt_share_country_pro = debt_share_country * 100)\n  \ng1 <- eu_makro %>%\n  ggplot(aes(x = debt_share_country_pro, y = unempl)) + geom_point() + \n  xlab(\"Verschuldungsquote in %\") +\n  ylab(\"Arbeitslosenquote in %\")\ng1"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:03"],"user":["Melis Dalli"],"umph":[1651416423.8884],"ok":[true],"chunk":[4],"ex":[1],"e.ind":[0],"code":["reg1 <- lm(unempl ~ debt_share_country_pro, data = eu_makro)\nsummary(reg1)\n\n# enter your code here ...\n\n#dat %>% \n # ggplot() + geom_sf(aes(fill = debt_share, geometry = geometry)) + geom_sf_text(aes(label = label, geometry = geometry), size = 3) + theme_void() + scale_fill_gradientn(colours = colours, name = \"Schuldenquote\") + theme(panel.grid.major = element_line(color = \"white\"))\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:03"],"user":["Melis Dalli"],"umph":[1651416423.9203],"ok":[true],"chunk":[5],"ex":[1],"e.ind":[0],"code":["6.895\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:03"],"user":["Melis Dalli"],"umph":[1651416423.9665],"ok":[true],"chunk":[6],"ex":[1],"e.ind":[0],"code":["\n# enter your code here ...\ncoef(reg1)\nb0 <- coef(reg1)[1]\nb1 <- coef(reg1)[2]\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:04"],"user":["Melis Dalli"],"umph":[1651416424.4464],"ok":[true],"chunk":[7],"ex":[1],"e.ind":[0],"code":["g2 <- g1 + geom_abline(intercept= b0, slope= b1, colour=\"blue\")\n\n# enter your code here ...\n\ng2"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:04"],"user":["Melis Dalli"],"umph":[1651416424.4803],"ok":[true],"chunk":[8],"ex":[1],"e.ind":[0],"code":["\n# enter your code here ...\n\ncor(eu_makro$unempl, eu_makro$debt_share_country_pro, use = \"pairwise.complete.obs\")\n         \n\n\n\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:05"],"user":["Melis Dalli"],"umph":[1651416425.1329],"ok":[true],"chunk":[9],"ex":[2],"e.ind":[0],"code":["set.seed(1)\nT <-  20 # Zahl der Beobachtungen\nbeta0 <- 10; beta1 <- 2;\nu <- rnorm(T,0,3) # Normalverteilte Stoergroesse\nu\nx <- runif(T,0,4) # gleichverteilte x zwischen 0 und 4\nx\ny <- beta0 + beta1*x + u\ny"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:05"],"user":["Melis Dalli"],"umph":[1651416425.1666],"ok":[true],"chunk":[10],"ex":[2],"e.ind":[0],"code":["\n# enter your code here ...\n2"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:05"],"user":["Melis Dalli"],"umph":[1651416425.1943],"ok":[true],"chunk":[11],"ex":[2],"e.ind":[0],"code":["\n# enter your code here ...\nlm(y ~ x)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:05"],"user":["Melis Dalli"],"umph":[1651416425.2139],"ok":[true],"chunk":[12],"ex":[2],"e.ind":[0],"code":["simulate.and.estimate <- function(T=20, beta0 = 10, beta1=2) {\n  u <- rnorm(T,0,3) # Normalverteilte Stoergroesse\n  x <- runif(T,0,4) # gleichverteilte x zwischen 0 und 4\n  y <- beta0 + beta1*x + u\n  # Anmerkung lm.fit lauft schneller als\n  # lm, hat aber keinen so schoenen Syntax\n  reg <- lm.fit(x=cbind(1,x),y=y)\n  coef(reg)[2]\n}\nsimulate.and.estimate()\nsimulate.and.estimate()\nsimulate.and.estimate()"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:05"],"user":["Melis Dalli"],"umph":[1651416425.2401],"ok":[true],"chunk":[13],"ex":[2],"e.ind":[0],"code":["2\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:06"],"user":["Melis Dalli"],"umph":[1651416426.3678],"ok":[true],"chunk":[14],"ex":[2],"e.ind":[0],"code":["sim.beta1 <- replicate(5000,simulate.and.estimate())\n\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:06"],"user":["Melis Dalli"],"umph":[1651416426.4207],"ok":[true],"chunk":[15],"ex":[2],"e.ind":[0],"code":["\n# enter your code here ...\nhist(sim.beta1)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:06"],"user":["Melis Dalli"],"umph":[1651416426.8311],"ok":[true],"chunk":[16],"ex":[2],"e.ind":[0],"code":["ggplot(mapping=aes(x=sim.beta1)) + geom_density(fill=\"blue\", alpha=0.5) + geom_vline(xintercept = 2)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:06"],"user":["Melis Dalli"],"umph":[1651416426.8574],"ok":[true],"chunk":[17],"ex":[2],"e.ind":[0],"code":["\n# enter your code here ...\nsd(sim.beta1)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:06"],"user":["Melis Dalli"],"umph":[1651416426.8944],"ok":[true],"chunk":[18],"ex":[2],"e.ind":[0],"code":["reg1 <-  lm(y~x)\nsummary(reg1)\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:06"],"user":["Melis Dalli"],"umph":[1651416426.9366],"ok":[true],"chunk":[19],"ex":[2],"e.ind":[0],"code":["\n# enter your code here ...\n\nconfint(reg1, level = 0.95)\nconfint(reg1, level = 0.99)\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:07"],"user":["Melis Dalli"],"umph":[1651416427.5753],"ok":[true],"chunk":[20],"ex":[2],"e.ind":[0],"code":["ggplot(mapping = aes(x=x,y=y)) + geom_point()+ geom_smooth(method=\"lm\")"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:08"],"user":["Melis Dalli"],"umph":[1651416428.0431],"ok":[true],"chunk":[21],"ex":[3],"e.ind":[0],"code":["eu_makro <- read_csv(\"./data/EU_Makro.csv\")"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:08"],"user":["Melis Dalli"],"umph":[1651416428.5618],"ok":[true],"chunk":[22],"ex":[3],"e.ind":[0],"code":["eu_makro <-  eu_makro %>%\n  group_by(country) %>%\n  arrange(year) %>%\n  mutate(gdp_growth = 100*(gdp - lag(gdp)) / gdp ) %>%\n  ungroup()"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:08"],"user":["Melis Dalli"],"umph":[1651416428.5941],"ok":[true],"chunk":[23],"ex":[3],"e.ind":[0],"code":["\n# enter your code here ...\ndat <- eu_makro %>%\n #filter(country == \"Germany\" | country == \"France\" | country == \"Netherlands\") %>%\n\nfilter(country %in% c(\"Germany\",\"France\",\"Netherlands\"))\n#dat\n\n    \n  \n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:08"],"user":["Melis Dalli"],"umph":[1651416428.631],"ok":[true],"chunk":[24],"ex":[3],"e.ind":[0],"code":["\n# enter your code here ...\nreg1 <- lm(unempl ~ gdp_growth, data = dat)\nsummary(reg1)\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:08"],"user":["Melis Dalli"],"umph":[1651416428.6523],"ok":[true],"chunk":[25],"ex":[3],"e.ind":[0],"code":["\n# enter your code here ...\n1"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:08"],"user":["Melis Dalli"],"umph":[1651416428.6826],"ok":[true],"chunk":[26],"ex":[3],"e.ind":[0],"code":["\n# enter your code here ...\n3"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:08"],"user":["Melis Dalli"],"umph":[1651416428.7148],"ok":[true],"chunk":[27],"ex":[3],"e.ind":[0],"code":["\n# enter your code here ...\nc(3)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:09"],"user":["Melis Dalli"],"umph":[1651416429.275],"ok":[true],"chunk":[28],"ex":[3],"e.ind":[0],"code":["reg2 <- lm(unempl~gdp_growth, data=eu_makro)\nstargazer(type = \"text\", reg2 ,  single.row = TRUE, header = FALSE, digits=2)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:09"],"user":["Melis Dalli"],"umph":[1651416429.2953],"ok":[true],"chunk":[29],"ex":[3],"e.ind":[0],"code":["\n# enter your code here ...\n3"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:09"],"user":["Melis Dalli"],"umph":[1651416429.3155],"ok":[true],"chunk":[30],"ex":[3],"e.ind":[0],"code":["\n# enter your code here ...\n4"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:09"],"user":["Melis Dalli"],"umph":[1651416429.3676],"ok":[true],"chunk":[31],"ex":[4],"e.ind":[0],"code":["pwt <- readRDS(\"./data/pwt_2014.rds\")\nhead(pwt)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:09"],"user":["Melis Dalli"],"umph":[1651416429.4097],"ok":[true],"chunk":[32],"ex":[4],"e.ind":[0],"code":["\n# enter your code here ...\nreg1 <-  lm(formula = bip ~ k, data = pwt)\nsummary(reg1)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:09"],"user":["Melis Dalli"],"umph":[1651416429.4472],"ok":[true],"chunk":[33],"ex":[4],"e.ind":[0],"code":["\n# enter your code here ...\n2"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:09"],"user":["Melis Dalli"],"umph":[1651416429.7134],"ok":[true],"chunk":[34],"ex":[4],"e.ind":[0],"code":["ggplot(pwt,aes(x=k,y=bip, label=isocode)) + geom_text() + geom_smooth(method=\"lm\")"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:09"],"user":["Melis Dalli"],"umph":[1651416429.759],"ok":[true],"chunk":[35],"ex":[4],"e.ind":[0],"code":["\n# enter your code here ...\npwt <- pwt %>%\n  mutate(log_bip = log(bip), log_k = log(k))"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:10"],"user":["Melis Dalli"],"umph":[1651416430.1856],"ok":[true],"chunk":[36],"ex":[4],"e.ind":[0],"code":["ggplot(pwt,aes(x=log_k,y=log_bip, label=isocode)) + geom_text() + geom_smooth(method=\"lm\")"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:10"],"user":["Melis Dalli"],"umph":[1651416430.2231],"ok":[true],"chunk":[37],"ex":[4],"e.ind":[0],"code":["\n# enter your code here ...\nreg2 <- lm(log_bip ~ log_k, data = pwt)\nsummary(reg2)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-01 16:47:10"],"user":["Melis Dalli"],"umph":[1651416430.2498],"ok":[true],"chunk":[38],"ex":[4],"e.ind":[0],"code":["\n# enter your code here ...\n3"],"message":[""]}
+,
