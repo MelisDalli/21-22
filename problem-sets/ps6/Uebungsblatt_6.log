@@ -472,3 +472,57 @@
 ,
 {"type":["check_chunk"],"time":["2022-05-10 16:57:01"],"user":["Melis Dalli"],"umph":[1652194621.3895],"ok":[true],"chunk":[26],"ex":[2],"e.ind":[0],"code":["\n# enter your code here ...\nc(1,2,3)"],"message":[""]}
 ,
+{"type":["init_ps"],"time":["2022-05-10 17:04:00"],"user":["Melis Dalli"],"umph":[1652195040.0376],"ok":[true]}
+,
+{"type":["check_chunk"],"time":["2022-05-10 17:04:00"],"user":["Melis Dalli"],"umph":[1652195040.3328],"ok":[true],"chunk":[1],"ex":[1],"e.ind":[0],"code":["\n# enter your code here ...\n2"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-10 17:04:00"],"user":["Melis Dalli"],"umph":[1652195040.3872],"ok":[true],"chunk":[2],"ex":[1],"e.ind":[0],"code":["\n# enter your code here ...\n\"nein\""],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-10 17:04:07"],"user":["Melis Dalli"],"umph":[1652195047.1386],"ok":[true],"chunk":[3],"ex":[1],"e.ind":[0],"code":["thp <- read_csv(\"./data/THP_clean.csv\") %>%\n  select(newid, uc, depressed_1y, treat, age_baseline, age_baseline_sq, kids_no, famstruct_baseline, grandmother_baseline, edu_mo, edu_fa, employed_mo_baseline, incomeindex, depindex_0, mspss_tot)\n\n# enter your code here ...\nskim(thp)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-10 17:04:08"],"user":["Melis Dalli"],"umph":[1652195048.1124],"ok":[true],"chunk":[4],"ex":[1],"e.ind":[0],"code":["thp_plots <- thp %>%\n  mutate(treat_factor = as.factor(ifelse(treat == 1 , \"Treatment\", \"Kontrolle\")),\n         depressed = as.factor(ifelse(depressed_1y == 0, \"keine Depressionen\", \"Depressionen\"))) %>%\n  filter( !is.na(depressed)) \nplot_prop_depression <- ggplot(thp_plots, aes(x = depressed, fill = treat_factor)) +\n  geom_bar(position = \"fill\") +\n  labs(x = NULL, y = \"Anteil an Depressionen\", fill = NULL) +\n  scale_fill_manual(values = c(\"darkblue\", \"darkred\"))\n\nplot_prop_depression\n\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-10 17:04:08"],"user":["Melis Dalli"],"umph":[1652195048.1606],"ok":[true],"chunk":[5],"ex":[1],"e.ind":[0],"code":["\n# enter your code here ...\n\"ja\""],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-10 17:04:08"],"user":["Melis Dalli"],"umph":[1652195048.2112],"ok":[true],"chunk":[6],"ex":[1],"e.ind":[0],"code":["\n# enter your code here ...\n\"unterschätzen\""],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-10 17:04:09"],"user":["Melis Dalli"],"umph":[1652195049.3218],"ok":[true],"chunk":[7],"ex":[1],"e.ind":[0],"code":["thp %>% \n  pivot_longer(cols = -treat, names_to = \"variable\", values_to = \"value\") %>%\n  group_nest(variable) %>%\n  mutate(t.test = map(data, ~tidy(t.test(value ~ treat, data = .x)))) %>%\n  unnest(t.test) %>%\n  mutate( Mean_Treatment = round(estimate2, 2),\n          Mean_Kontrolle = round(estimate1, 2),\n    Differenz = round(estimate, 4),\n          Signifikanz = round(p.value,4)) %>%\n  select(variable, Mean_Treatment, Mean_Kontrolle, Differenz, Signifikanz)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-10 17:04:09"],"user":["Melis Dalli"],"umph":[1652195049.3939],"ok":[true],"chunk":[8],"ex":[1],"e.ind":[0],"code":["\n# enter your code here ...\n3"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-10 17:04:09"],"user":["Melis Dalli"],"umph":[1652195049.597],"ok":[true],"chunk":[9],"ex":[1],"e.ind":[0],"code":["reg1 <- lm(depressed_1y ~ treat, data=thp)\nreg2 <- lm(depressed_1y ~ treat + depindex_0, data=thp)\nreg3 <- lm(depressed_1y ~ treat + depindex_0 + age_baseline + age_baseline_sq + kids_no + famstruct_baseline + grandmother_baseline + edu_mo + edu_fa + employed_mo_baseline + incomeindex + mspss_tot, data=thp)\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-10 17:04:11"],"user":["Melis Dalli"],"umph":[1652195051.9782],"ok":[true],"chunk":[10],"ex":[1],"e.ind":[0],"code":["stargazer( reg1, reg2, reg3 ,type = \"text\",  digits=2, omit.stat = c(\"f\",\"ser\"))"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-10 17:04:12"],"user":["Melis Dalli"],"umph":[1652195052.0211],"ok":[true],"chunk":[11],"ex":[1],"e.ind":[0],"code":["\n# enter your code here ...\nc(2,4)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-10 17:04:12"],"user":["Melis Dalli"],"umph":[1652195052.1151],"ok":[true],"chunk":[12],"ex":[1],"e.ind":[0],"code":["\n# enter your code here ...\n2"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-10 17:04:18"],"user":["Melis Dalli"],"umph":[1652195058.0695],"ok":[true],"chunk":[13],"ex":[2],"e.ind":[0],"code":["library(AER)\ndata(Fertility)\nhead(Fertility)\nskim(Fertility)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-10 17:04:18"],"user":["Melis Dalli"],"umph":[1652195058.1297],"ok":[true],"chunk":[14],"ex":[2],"e.ind":[0],"code":["\n# enter your code here ...\n2"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-10 17:04:21"],"user":["Melis Dalli"],"umph":[1652195061.1154],"ok":[true],"chunk":[15],"ex":[2],"e.ind":[0],"code":["Fertility <- Fertility %>%\n  mutate(work01 = case_when(work > 0 ~ 1,\n                            work == 0 ~ 0))\n\n# enter your code here ...\nreg1 <- lm(work01 ~ morekids, data = Fertility)\nsummary(reg1)\n\n# enter your code here ...\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-10 17:04:21"],"user":["Melis Dalli"],"umph":[1652195061.1678],"ok":[true],"chunk":[16],"ex":[2],"e.ind":[0],"code":["\n# enter your code here ...\n2"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-10 17:04:23"],"user":["Melis Dalli"],"umph":[1652195063.4529],"ok":[true],"chunk":[17],"ex":[2],"e.ind":[0],"code":["grViz('digraph G {\n\nx [label=\"erklärende Variable x\"]\ny [label=\"abhängige Variable y\"]\nz [label=\"Instrument z\"]\n\nx -> y [label=\"+\"];\nz -> x [label=\"+\"];\nz -> y [label=\"+\"];\n}')"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-10 17:04:23"],"user":["Melis Dalli"],"umph":[1652195063.6111],"ok":[true],"chunk":[18],"ex":[2],"e.ind":[0],"code":["grViz('digraph G {\n\nx [label=\"erklärende Variable x\"]\ny [label=\"abhängige Variable y\"]\nz [label=\"Instrument z\"]\n\nx -> y [label=\"-\"];\nz -> y [label=\"+\"];\n}')"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-10 17:04:23"],"user":["Melis Dalli"],"umph":[1652195063.7839],"ok":[true],"chunk":[19],"ex":[2],"e.ind":[0],"code":["grViz('digraph G {\n\nx [label=\"erklärende Variable x\"]\ny [label=\"abhängige Variable y\"]\nz [label=\"Instrument z\"]\n\nx -> y [label=\"-\"];\nz -> x [label=\"+\"];\n}')"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-10 17:04:23"],"user":["Melis Dalli"],"umph":[1652195063.8668],"ok":[true],"chunk":[20],"ex":[2],"e.ind":[0],"code":["\n# enter your code here ...\n3"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-10 17:04:29"],"user":["Melis Dalli"],"umph":[1652195069.0112],"ok":[true],"chunk":[21],"ex":[2],"e.ind":[0],"code":["Fertility <- Fertility %>%\n  mutate(morekids = ifelse(morekids== \"yes\", 1, 0)) %>%\n  mutate(afam = ifelse(afam== \"yes\", 1, 0)) %>%\n  mutate(same_sex = ifelse(gender1== gender2, 1, 0))\n  \nreg1 <-  Fertility %>%\n  lm(morekids ~ gender2, data=.)\n\nreg2 <- Fertility %>%\n  lm(morekids ~ afam, data=.)\n\n reg3 <- Fertility %>%\n  lm(morekids ~ same_sex, data=.)\n\n stargazer(reg1, reg2, reg3, type = \"text\", digits=3)"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-10 17:04:29"],"user":["Melis Dalli"],"umph":[1652195069.0539],"ok":[true],"chunk":[22],"ex":[2],"e.ind":[0],"code":["\n# enter your code here ...\n3"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-10 17:04:31"],"user":["Melis Dalli"],"umph":[1652195071.3081],"ok":[true],"chunk":[23],"ex":[2],"e.ind":[0],"code":["\nivreg(work01 ~ morekids | same_sex, data = Fertility) %>% \n  summary(diagnostics=TRUE)\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-10 17:04:32"],"user":["Melis Dalli"],"umph":[1652195072.3116],"ok":[true],"chunk":[24],"ex":[2],"e.ind":[0],"code":["\nivreg(work01 ~ morekids | same_sex, data = Fertility) %>% \n  summary()\n"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-10 17:04:32"],"user":["Melis Dalli"],"umph":[1652195072.3578],"ok":[true],"chunk":[25],"ex":[2],"e.ind":[0],"code":["\n# enter your code here ...\n2"],"message":[""]}
+,
+{"type":["check_chunk"],"time":["2022-05-10 17:04:32"],"user":["Melis Dalli"],"umph":[1652195072.406],"ok":[true],"chunk":[26],"ex":[2],"e.ind":[0],"code":["\n# enter your code here ...\nc(1,2,3)"],"message":[""]}
+,
